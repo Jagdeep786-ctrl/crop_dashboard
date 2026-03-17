@@ -10,22 +10,24 @@ It covers complete DevOps lifecycle:
 - Application exposure via AWS Application Load Balancer (ALB)
 
 ---
+## 🏗️ Architecture Diagram
 
-## 🏗️ Architecture
-User
-↓
-Frontend (React)
-↓
-API Gateway (Node.js / Express)
-├──> Data Service (MySQL) → Historical Data
-├──> Trend Service (Python ML) → Predictions
-└──> Write Service (Node.js) → Data Ingestion
-↓
-API Gateway merges responses
-↓
-Frontend receives combined JSON
-↓
-Chart Visualization  
+```mermaid
+flowchart TD
+
+User --> Frontend
+Frontend --> APIGateway
+
+APIGateway --> DataService
+APIGateway --> TrendService
+APIGateway --> WriteService
+
+DataService --> MySQL[(MySQL)]
+TrendService --> ML[(ML Model)]
+
+APIGateway --> Response
+Response --> Frontend
+Frontend --> Chart[Chart Visualization]
 
 ---
 
@@ -58,7 +60,7 @@ Chart Visualization
 
 ## 🚀 Deployment Workflow
 
-### Step 1: Create Kubernetes Resources
+### Create Kubernetes Resources
 
 - Deployment & Service YAMLs
 - ConfigMaps
