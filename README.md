@@ -12,9 +12,6 @@ It covers complete DevOps lifecycle:
 ---
 ## 🏗️ Architecture Diagram
 
-```mermaid
-flowchart TD
-
 User --> Frontend
 Frontend --> APIGateway
 
@@ -175,17 +172,16 @@ kubectl patch svc prometheus-grafana -n monitoring -p '{"spec": {"type": "LoadBa
   kubectl get svc -n monitoring
 
 ```bash
-  kubectl get svc -n monitoring
+kubectl get svc -n monitoring
 
 ### 🔹  Grafana Username
 
-```bash
 admin
 
 ### 🔹  Grafana Password
 
 ```bash
- kubectl get secret --namespace monitoring prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode
+kubectl get secret --namespace monitoring prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode
 
 ### 🔹  Expose Grafana via ALB
 
