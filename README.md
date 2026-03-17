@@ -59,11 +59,10 @@ Frontend --> Chart[Chart Visualization]
 - Ingress (ALB)
 
 ```bash
+
 kubectl apply -f namespace.yaml
 kubectl apply -f . -n stock
- kubectl create configmap mysql-initdb --from-file=init.sql=./db/init.sql -n stock
-
----
+kubectl create configmap mysql-initdb --from-file=init.sql=./db/init.sql -n stock
 
 ## 🚀AWS EKS Setup
 
