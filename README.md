@@ -42,7 +42,7 @@ Frontend --> Chart[Chart Visualization]
 - Helm
 - AWS ALB (Ingress)
 
-### 📊 Monitoring
+### 📊 Monitoring 
 - Prometheus
 - Grafana
 - Node Exporter
