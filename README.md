@@ -9,7 +9,6 @@ It covers complete DevOps lifecycle:
 - Monitoring with Prometheus, Grafana, and Node Exporter
 - Application exposure via AWS Application Load Balancer (ALB)
 
----
 ## 🏗️ Architecture Diagram
 
 User --> Frontend
@@ -25,11 +24,6 @@ TrendService --> ML[(ML Model)]
 APIGateway --> Response
 Response --> Frontend
 Frontend --> Chart[Chart Visualization]
-
----
-
-
----
 
 ## ⚙️ Tech Stack
 
@@ -53,7 +47,6 @@ Frontend --> Chart[Chart Visualization]
 - Grafana
 - Node Exporter
 
----
 
 ## 🚀 Deployment Workflow
 
@@ -66,12 +59,9 @@ Frontend --> Chart[Chart Visualization]
 - Ingress (ALB)
 
 ```bash
-kubectl apply -f configmap.yaml
-kubectl apply -f pv.yaml
-kubectl apply -f pvc.yaml
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
-kubectl apply -f ingress.yaml Node Exporter
+kubectl apply -f namespace.yaml
+kubectl apply -f . -n stock
+ kubectl create configmap mysql-initdb --from-file=init.sql=./db/init.sql -n stock
 
 ---
 
@@ -207,7 +197,7 @@ If interviewer asks this project:
 
 
 
-## 👨‍💻 Author
+## 👨‍💻** Author**
 
 Jagdeep Sodhi
 
